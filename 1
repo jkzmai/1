@@ -1,0 +1,12 @@
+import requests
+from bs4 import BeautifulSoup
+url = 'https://so.gushiwen.cn/mingju/juv_014203a41f16.aspx'
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.61'
+}
+a = requests.get(url=url, headers=headers)
+html = a.text
+soup = BeautifulSoup(html, 'html.parser')
+all = soup.findAll('div', attrs={'id': "contson2449fc7a9986"})
+for x in all:
+    print(x.text)
